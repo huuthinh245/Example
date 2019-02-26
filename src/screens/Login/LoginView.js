@@ -21,8 +21,8 @@ export default class LoginView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: '',
-            password: '',
+            username: 'tunghoang',
+            password: 'tuho168',
             scale: new Animated.Value(0)
         }
     }
