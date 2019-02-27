@@ -11,12 +11,7 @@ class ProgressiveImage extends React.Component {
         console.log('aaaa');
         console.log(this.props.source);
         console.log(nextProps.source);
-        return false;
-        // return this.props.source !== nextProps.source;
-        // if(this.props.source !== nextProps.source) {
-        //     return true;
-        // }
-        // return false;
+        return this.props.source !== nextProps.source;
     }
     handleThumbnailLoad = () => {
         Animated.timing(this.thumbnailAnimated, {
