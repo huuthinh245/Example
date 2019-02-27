@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, CameraRoll } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 const PendingView = () => (
   <View
@@ -20,21 +20,24 @@ class CameraView extends Component {
       <View style={styles.container}>
         <RNCamera
           style={styles.preview}
+          ref={ref => {
+            this.camera = ref;
+          }}
           type={RNCamera.Constants.Type.back}
           captureAudio={false}
           flashMode={RNCamera.Constants.FlashMode.on}
           barCodeTypes={[RNCamera.Constants.BarCodeType.qr, RNCamera.Constants.BarCodeType.ean13]}
           permissionDialogTitle={'Permission to use camera'}
           permissionDialogMessage={'We need your permission to use your camera phone'}
-          onGoogleVisionBarcodesDetected={({ barcodes }) => {
-            alert(barcodes);
-          }}
+          // onGoogleVisionBarcodesDetected={({ barcodes }) => {
+          //   alert(barcodes);
+          // }}
         >
           {({ camera, status, recordAudioPermissionStatus }) => {
             if (status !== 'READY') return <PendingView />;
             return (
               <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}>
-                <TouchableOpacity onPress={() => this.takePicture(camera)} style={styles.capture}>
+                <TouchableOpacity onPress={this.takePicture} style={styles.capture}>
                   <Text style={{ fontSize: 14 }}> SNAP </Text>
                 </TouchableOpacity>
               </View>
@@ -45,11 +48,14 @@ class CameraView extends Component {
     );
   }
 
-  takePicture = async (camera) => {
-    const options = { quality: 0.5, base64: true };
-    const data = await camera.takePictureAsync(options);
-    //  eslint-disable-next-line
-    console.log(data.uri);
+  takePicture =  () => {
+    if (this.camera) {
+      const options = { quality: 0.5, };
+      this.camera.takePictureAsync(options).then(data => {
+        console.log(data.uri);
+        CameraRoll.saveToCameraRoll(data.uri);
+      });
+    }
   };
 }
 

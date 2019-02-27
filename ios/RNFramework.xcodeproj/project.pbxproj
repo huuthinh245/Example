@@ -24,7 +24,7 @@
 		2526CA3B22242A7000E1C1DA /* libreact-native-sqlite-storage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2526CA3A22242A7000E1C1DA /* libreact-native-sqlite-storage.a */; };
 		2526CA3D22242B7800E1C1DA /* www in Resources */ = {isa = PBXBuildFile; fileRef = 2526CA3C22242B7800E1C1DA /* www */; };
 		2526CA412224306E00E1C1DA /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 2526CA402224306E00E1C1DA /* Fonts */; };
-		2526CA432224313B00E1C1DA /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2526CA422224313A00E1C1DA /* FontAwesome.ttf */; };
+		2554402222264EC2004FA2D6 /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25543FB322264576004FA2D6 /* libRCTCameraRoll.a */; };
 		25622BB1222381250010657B /* libFBSDKCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25622BB0222381250010657B /* libFBSDKCoreKit.a */; };
 		25622C4F2223918C0010657B /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25622C4E2223918C0010657B /* libRNGoogleSignin.a */; };
 		258E7F3F221F99B9008C904E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 258E7F3E221F99B9008C904E /* GoogleService-Info.plist */; };
@@ -100,6 +100,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = E23D7B471ACEFE2A00C59171;
 			remoteInfo = SQLite;
+		};
+		25543FB222264576004FA2D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25543FA922264576004FA2D6 /* RCTCameraRoll.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 58B5115D1A9E6B3D00147676;
+			remoteInfo = RCTCameraRoll;
 		};
 		25622BAE2223810F0010657B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -345,7 +352,7 @@
 		2526CA3A22242A7000E1C1DA /* libreact-native-sqlite-storage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-sqlite-storage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2526CA3C22242B7800E1C1DA /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = RNFramework/www; sourceTree = "<group>"; };
 		2526CA402224306E00E1C1DA /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = "../node_modules/react-native-vector-icons/Fonts"; sourceTree = "<group>"; };
-		2526CA422224313A00E1C1DA /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		25543FA922264576004FA2D6 /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "../node_modules/react-native/Libraries/CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<group>"; };
 		25622B82222380DA0010657B /* Example */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Example; path = ../../Example; sourceTree = "<group>"; };
 		25622BAA2223810F0010657B /* RNGoogleSignin.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNGoogleSignin.xcodeproj; path = "../node_modules/react-native-google-signin/ios/RNGoogleSignin.xcodeproj"; sourceTree = "<group>"; };
 		25622BB0222381250010657B /* libFBSDKCoreKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFBSDKCoreKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -372,6 +379,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2554402222264EC2004FA2D6 /* libRCTCameraRoll.a in Frameworks */,
 				2526CA3B22242A7000E1C1DA /* libreact-native-sqlite-storage.a in Frameworks */,
 				25622C4F2223918C0010657B /* libRNGoogleSignin.a in Frameworks */,
 				25622BB1222381250010657B /* libFBSDKCoreKit.a in Frameworks */,
@@ -525,6 +533,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		25543FAA22264576004FA2D6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				25543FB322264576004FA2D6 /* libRCTCameraRoll.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		25622BAB2223810F0010657B /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -552,6 +568,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				25543FA922264576004FA2D6 /* RCTCameraRoll.xcodeproj */,
 				2526CA3A22242A7000E1C1DA /* libreact-native-sqlite-storage.a */,
 				2526C9D52224294000E1C1DA /* SQLite.xcodeproj */,
 				2526C990222427D000E1C1DA /* react-native-sqlite-storage */,
@@ -629,7 +646,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				2526CA422224313A00E1C1DA /* FontAwesome.ttf */,
 				13B07FAE1A68108700A75B9A /* RNFramework */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* RNFrameworkTests */,
@@ -724,6 +740,10 @@
 				{
 					ProductGroup = ADBDB9201DFEBF0600ED6528 /* Products */;
 					ProjectRef = ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */;
+				},
+				{
+					ProductGroup = 25543FAA22264576004FA2D6 /* Products */;
+					ProjectRef = 25543FA922264576004FA2D6 /* RCTCameraRoll.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302B61ABCB90400DB3ED1 /* Products */;
@@ -843,6 +863,13 @@
 			fileType = archive.ar;
 			path = libSQLite.a;
 			remoteRef = 2526CA002224294000E1C1DA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		25543FB322264576004FA2D6 /* libRCTCameraRoll.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTCameraRoll.a;
+			remoteRef = 25543FB222264576004FA2D6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		25622BAF2223810F0010657B /* libRNGoogleSignin.a */ = {
@@ -1069,7 +1096,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2526CA432224313B00E1C1DA /* FontAwesome.ttf in Resources */,
 				2526CA412224306E00E1C1DA /* Fonts in Resources */,
 				2526CA3D22242B7800E1C1DA /* www in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
@@ -1105,6 +1131,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-RNFramework/Pods-RNFramework-resources.sh",
 				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/QBImagePickerController/QBImagePicker.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
@@ -1129,6 +1156,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QBImagePicker.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",

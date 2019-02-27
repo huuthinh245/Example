@@ -2,10 +2,22 @@ import React from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
 
 
-export default class ProgressiveImage extends React.Component {
+class ProgressiveImage extends React.Component {
     thumbnailAnimated = new Animated.Value(0);
     imageAnimated = new Animated.Value(0);
     
+
+    shouldComponentUpdate(nextProps) {
+        console.log('aaaa');
+        console.log(this.props.source);
+        console.log(nextProps.source);
+        return false;
+        // return this.props.source !== nextProps.source;
+        // if(this.props.source !== nextProps.source) {
+        //     return true;
+        // }
+        // return false;
+    }
     handleThumbnailLoad = () => {
         Animated.timing(this.thumbnailAnimated, {
             toValue: 1,
@@ -26,7 +38,6 @@ export default class ProgressiveImage extends React.Component {
             style,
             ...props
         } = this.props;
-
         return (
             <View style={[styles.container, style]}>
                 <Animated.Image
@@ -60,3 +71,5 @@ const styles = StyleSheet.create({
       backgroundColor: '#e1e4e8',
     },
   });
+
+  export default ProgressiveImage;

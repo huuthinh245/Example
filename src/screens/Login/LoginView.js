@@ -16,6 +16,8 @@ import SaeInput from 'elements/SaeInput';
 import Icon from 'utils/Icon';
 import NavigationService from 'navigation/NavigationService';
 import { getFontSize } from 'utils/metrics';
+
+
 export default class LoginView extends React.Component {
 
     constructor(props) {
@@ -53,9 +55,10 @@ export default class LoginView extends React.Component {
                         source={Icon.logo}
                         style={{
                             height: 200,
+                            width: '100%'
                         }}
                     />
-                    <View style={{ width: '100%' }}>
+                    <View style={{ width: '100%', paddingHorizontal: 10 }}>
                         <SaeInput
                             labelString={'username'}
                             value={this.state.username}

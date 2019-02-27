@@ -11,47 +11,35 @@ import {
 } from 'react-native';
 import { imagePicker } from 'lib/ImagePicker';
 import ProgressiveImage from './ProgressImage';
-export default class PickerView extends React.Component {
+import { width } from 'utils/metrics';
+export default class PickerView extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
             listImg: []
         }
     }
-    _renderImage = () => {
-        if (this.state.listImg.length > 0) {
+    _renderImage = ({ item }) => {
             return (
-                <FlatList
-                    keyExtractor={(item, index) => `${Math.random()}`}
-                    data={this.state.listImg}
-                    renderItem={({ item }) => {
-                        return (
-                            <ProgressiveImage
-                                thumbnailSource={{ uri: `https://images.pexels.com/photos/671557/pexels-photo-671557.jpeg?w=50&buster=${Math.random()}` }}
-                                source={{ uri: item.path }}
-                                style={{ width: 300, height: 300, }}
-                                resizeMode="cover"
-                            />
-                        );
-
-                    }}
-                />
+                    <ProgressiveImage
+                        thumbnailSource={{ uri: `https://images.pexels.com/photos/671557/pexels-photo-671557.jpeg?w=50&buster=${Math.random()}` }}
+                        source={{ uri: item.path }}
+                        style={{ width, height: 300, }}
+                        resizeMode="cover"
+                    />
             )
-        }
-        return null;
     }
     _picker = () => {
         imagePicker((data) => {
-            console.log(data);
             if (data) {
                 this.setState({
-                    listImg: [...this.state.listImg, ...data]
+                    ...this.state.listImg,
+                    listImg: this.state.listImg.concat(data)
                 })
             }
         })
     }
     render() {
-        console.log(this.state.listImg);
         return (
             <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
                 <TouchableOpacity
@@ -60,7 +48,11 @@ export default class PickerView extends React.Component {
                 >
                     <Text>image picker</Text>
                 </TouchableOpacity>
-                {this._renderImage()}
+                <FlatList
+                    keyExtractor={(item, index) => `${index}`}
+                    data={this.state.listImg}
+                    renderItem={this._renderImage}
+                />
             </SafeAreaView>
         )
     }

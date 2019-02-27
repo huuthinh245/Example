@@ -3,6 +3,7 @@ package com.rnframework;
 import android.app.Application;
 
 import com.RNFetchBlob.RNFetchBlobPackage;
+import com.airbnb.android.react.maps.MapsPackage;
 import com.facebook.CallbackManager;
 import com.facebook.react.ReactApplication;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -50,7 +51,8 @@ public class MainApplication extends Application implements ReactApplication {
               new PickerPackage(),
               new RNFetchBlobPackage(),
               new VectorIconsPackage(),
-              new SQLitePluginPackage()
+              new SQLitePluginPackage(),
+              new MapsPackage()
 
       );
     }

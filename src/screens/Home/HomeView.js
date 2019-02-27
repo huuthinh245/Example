@@ -77,9 +77,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: 'aliceblue',
         width: width / 5,
+        borderWidth: 1,
+        marginVertical: 1
     },
     buttonText: {
-        fontSize: 18,
+        fontSize: 14,
         marginVertical: 10
 
     }

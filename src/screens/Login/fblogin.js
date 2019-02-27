@@ -7,6 +7,7 @@ import {
   Dimensions
 } from 'react-native';
 import FBSDK, { LoginManager, AccessToken, LoginButton } from 'react-native-fbsdk';
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
 const { GraphRequest, GraphRequestManager } = FBSDK;
 const { width, height } = Dimensions.get('window');
@@ -56,7 +57,8 @@ export default class LoginFb extends React.Component {
         onPress={this._loginFb}
         style={styles.button}
       >
-        <View style={styles.iconSize}/>
+        <FontAwesomeIcon style={styles.iconSize} name={'facebook'}/>
+        {/* <View style={styles.iconSize}/> */}
         <Text style={{ color: 'white' }}>login with facebook</Text>
       </TouchableOpacity>
       // <LoginButton
@@ -90,10 +92,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 5,
     paddingHorizontal: 10,
-    width: '50%'
+    width: '50%',
+    height: 40
   },
   iconSize: {
+    fontSize: 24,
     width: 40,
-    height: 40
+    color: 'white',
+    textAlign: 'center'
   }
 })

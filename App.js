@@ -9,7 +9,7 @@ import firebase from 'react-native-firebase';
 import stores from './src/store';
 import Root from 'navigation/root';
 import NavigationService from 'navigation/NavigationService';
-
+console.disableYellowBox = true;
 export default class App extends Component {
 
   async componentDidMount() {
