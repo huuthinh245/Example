@@ -1,3 +1,4 @@
+//@flow
 import Immutable from 'immutable';
 import * as types from 'action/types';
 
@@ -6,7 +7,9 @@ const initialState = Immutable.fromJS({
     loading: false
 })
 
-export const userReducer = (state= initialState, action) => {
+
+
+export const userReducer = (state: any = initialState, action: { type: String, payload: any }) => {
     switch (action.type) {
         case types.LOGIN:
             return state.set('loading', true);

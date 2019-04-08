@@ -8,7 +8,7 @@ import App from './App';
 import  Permissions from 'react-native-permissions';
 import {name as appName} from './app.json';
 import googleConfig from './src/lib/googleConfig';
-
+import bgMessage from './bgMessage';
 
 const requestPermissions = async () => {
     try {
@@ -30,3 +30,4 @@ googleConfig();
 requestPermissions();
 
 AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerHeadlessTask('RNFirebaseBackgroundMessage', () => bgMessaging); 

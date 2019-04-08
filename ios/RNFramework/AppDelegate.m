@@ -7,6 +7,7 @@
 #import <Firebase.h>
 #import "AppDelegate.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import "RNFirebaseNotifications.h"
@@ -20,15 +21,12 @@
   [GMSServices provideAPIKey:@"AIzaSyAr8JV6AzdMQ-mXalJ5Xn3uClMFq-jhnBk"];
   [FIRApp configure];
   [RNFirebaseNotifications configure];
-  NSURL *jsCodeLocation;
-  
-  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
+  RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
+  RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
+                                                   moduleName:@"RNFramework"
+                                            initialProperties:nil];
 
-  RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
-                                                      moduleName:@"RNFramework"
-                                               initialProperties:nil
-                                                   launchOptions:launchOptions];
-  rootView.backgroundColor = [UIColor blackColor];
+  rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
@@ -37,6 +35,16 @@
   [self.window makeKeyAndVisible];
   return YES;
 }
+
+- (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
+{
+#if DEBUG
+  return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
+#else
+  return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+#endif
+}
+
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
   [[RNFirebaseNotifications instance] didReceiveLocalNotification:notification];
 }
@@ -53,8 +61,8 @@ fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHand
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
   
   BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url
-                                sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
-                                annotation:options[UIApplicationOpenURLOptionsAnnotationKey]] ||  [RNGoogleSignin application:application openURL:url sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey] annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];;
+          sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                 annotation:options[UIApplicationOpenURLOptionsAnnotationKey]] ||  [RNGoogleSignin application:application openURL:url sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey] annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];;
   
   // Add any custom logic here.
   return handled;

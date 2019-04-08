@@ -12,9 +12,6 @@ import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 const { GraphRequest, GraphRequestManager } = FBSDK;
 const { width, height } = Dimensions.get('window');
 export default class LoginFb extends React.Component {
-
-
-
   _loginFb = () => {
     LoginManager.logOut();
     LoginManager.logInWithReadPermissions(['public_profile'])
@@ -57,7 +54,7 @@ export default class LoginFb extends React.Component {
         onPress={this._loginFb}
         style={styles.button}
       >
-        <FontAwesomeIcon style={styles.iconSize} name={'facebook'}/>
+        <FontAwesomeIcon style={styles.iconSize} name={'facebook'} />
         {/* <View style={styles.iconSize}/> */}
         <Text style={{ color: 'white' }}>login with facebook</Text>
       </TouchableOpacity>

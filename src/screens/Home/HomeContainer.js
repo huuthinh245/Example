@@ -14,6 +14,10 @@ class HomeContainer extends React.Component {
         data: []
     }
 
+    componentDidMount() {
+
+    }
+
     createTable = () => {
         SQL.db.transaction(tx => {
             tx.executeSql('CREATE TABLE IF NOT EXISTS USER( '
@@ -38,6 +42,7 @@ class HomeContainer extends React.Component {
             .catch(err => console.log(err))
     }
     loadData = () => {
+        console.log(SQL.db);
         SQL.db.transaction(tx => {
             tx.executeSql('SELECT * FROM USER')
                 .then(([tx, results]) => {

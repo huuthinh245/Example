@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import {
     SafeAreaView,
@@ -18,9 +19,9 @@ import NavigationService from 'navigation/NavigationService';
 import { getFontSize } from 'utils/metrics';
 
 
-export default class LoginView extends React.Component {
+export default class LoginView extends React.Component<any, any> {
 
-    constructor(props) {
+    constructor(props: any) {
         super(props);
         this.state = {
             username: 'tunghoang',
@@ -30,7 +31,6 @@ export default class LoginView extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props);
         Animated.timing(this.state.scale, {
             duration: 2000,
             toValue: 1

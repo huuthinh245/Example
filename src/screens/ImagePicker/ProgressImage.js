@@ -1,13 +1,14 @@
+//@flow
 import React from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
 
 
-class ProgressiveImage extends React.Component {
+class ProgressiveImage extends React.Component<any> {
     thumbnailAnimated = new Animated.Value(0);
     imageAnimated = new Animated.Value(0);
     
 
-    shouldComponentUpdate(nextProps) {
+    shouldComponentUpdate(nextProps: any) {
         console.log('aaaa');
         console.log(this.props.source);
         console.log(nextProps.source);

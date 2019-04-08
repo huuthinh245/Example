@@ -1,43 +1,33 @@
+//@flow
 import SQLite from 'react-native-sqlite-storage';
 SQLite.enablePromise(true);
 
-// initDb = () => {
-//     db = SQLite.openDatabase({ name: "testDB" }, okCallback, errorCallback);
-// }
-
-// okCallback = (result) => {
-//     console.log(result);
-// }
-// errorCallback = (err) => {
-//     console.log(err);
-// }
-
 class SQL {
-    static db =null;
-    static  initDb() {
-        if(this.db === null) {
+    static db = null;
+    static initDb() {
+        if (this.db === null) {
             SQLite.openDatabase({ name: "testDB" })
-            .then(DB => {
-                this.db= DB;
-            })
-            .catch(err => console.log(err));
+                .then(DB => {
+                    this.db = DB;
+                })
+                .catch(err => console.log(err));
         }
     }
 
     static closeDb() {
-        if(this.db !== null) {
+        if (this.db !== null) {
             this.db.close()
-            .then(status => console.log(status));
+                .then(status => console.log(status));
         }
         // if(this.db) {
         //   this.db.close().then(status => console.log(status));
         // }
     }
-    okCallback = (success) => {
+    okCallback(success: any) {
         console.log(success);
     }
 
-    errorCallback = (err) => {
+    errorCallback(err : any) {
         console.log(err);
     }
 }

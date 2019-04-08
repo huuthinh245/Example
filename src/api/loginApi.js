@@ -1,10 +1,11 @@
 import api from './ApiConstrants';
 
 export const fetchApi = ({ username, password }) => {
-    console.log(username);
     const config = {
-        header: {
-            headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type': 'application/json' },
+        onUploadProgress: progressEvent => {
+            const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+            console.log(progressEvent.loaded);
         }
     }
     const body = JSON.stringify({

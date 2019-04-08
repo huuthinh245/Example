@@ -1,13 +1,14 @@
 import React from 'react';
 import {
-    Animated, SafeAreaView,
+    Animated,
     View
 } from 'react-native';
 import {
     createAppContainer,
     createBottomTabNavigator,
     createSwitchNavigator,
-    createStackNavigator
+    createStackNavigator,
+    SafeAreaView
 } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Home from 'screens/Home/HomeContainer';
@@ -16,7 +17,7 @@ import ImagePicker from 'screens/ImagePicker/PickerContainer';
 import Login from 'screens/Login/LoginContainer';
 import Download from 'screens/Download/DownloadContainer';
 import Maps from 'screens/Maps/MapContainer';
-import { width } from 'utils/metrics'
+import { width, scaleByHeight, scale } from 'utils/metrics'
 
 
 const TabNavigator = createBottomTabNavigator({
@@ -37,20 +38,22 @@ const TabNavigator = createBottomTabNavigator({
         navigationOptions: {
             //  tabBarVisible: false,
             title: '',
-            tabBarIcon: ({ tintColor, focused }) => (
+            tabBarIcon: ({ tintColor, focused }) => {
+            console.log(scale(40));
+            return (
                 <View
                     style={{
-                        height: 80,
-                        width: 80,
+                        height: scale(70),
+                        width: scale(70),
                         borderRadius: 100,
                         backgroundColor: '#FE6D64',
                         paddingTop: 15,
                         alignItems: 'center',
                     }}
                 >
-                    <Ionicons name="ios-camera" size={50} color={tintColor} />
+                    <Ionicons name="ios-camera" size={scale(40)} color={tintColor} />
                 </View>
-            ),
+            )},
         }
     },
     Image: {
@@ -67,10 +70,14 @@ const TabNavigator = createBottomTabNavigator({
         }
     }
 }, {
-        initialRouteName: 'Home',
+        initialRouteName: 'Maps',
         tabBarOptions: {
             style: {
                 backgroundColor: '#223a42'
+            },
+            allowFontScaling: true,
+            labelStyle: {
+                fontSize: 12
             }
         }
 });
@@ -102,9 +109,7 @@ class TabWrapper extends React.Component {
             <Animated.View
                 style={{ flex: 1, transform: [{ translateX }] }}
             >
-                <SafeAreaView style={{ flex: 1 }}>
                     <TabNavigator navigation={this.props.navigation} />
-                </SafeAreaView>
             </Animated.View>
         )
     }
@@ -115,7 +120,7 @@ const AuthNavigator = createSwitchNavigator({
         screen: Login
     },
     Main: {
-        screen: TabWrapper
+        screen: TabNavigator
     },
 
 }, {
