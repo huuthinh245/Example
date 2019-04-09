@@ -15,7 +15,6 @@ import com.facebook.soloader.SoLoader;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.reactnative.ivpusic.imagepicker.PickerPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
-import com.wix.interactable.Interactable;
 
 import org.pgsqlite.SQLitePluginPackage;
 import org.reactnative.camera.RNCameraPackage;
@@ -58,8 +57,7 @@ public class MainApplication extends Application implements ReactApplication {
                     new RNFetchBlobPackage(),
                     new VectorIconsPackage(),
                     new SQLitePluginPackage(),
-                    new MapsPackage(),
-                    new Interactable()
+                    new MapsPackage()
             );
         }
 

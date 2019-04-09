@@ -39,19 +39,19 @@ const TabNavigator = createBottomTabNavigator({
             //  tabBarVisible: false,
             title: '',
             tabBarIcon: ({ tintColor, focused }) => {
-            console.log(scale(40));
             return (
                 <View
                     style={{
-                        height: scale(70),
-                        width: scale(70),
-                        borderRadius: 100,
+                        height: scale(75),
+                        width: scale(75),
+                        borderRadius: scale(37.5),
                         backgroundColor: '#FE6D64',
-                        paddingTop: 15,
+                        justifyContent: 'center',
                         alignItems: 'center',
+                        marginBottom: scale(37.5)
                     }}
                 >
-                    <Ionicons name="ios-camera" size={scale(40)} color={tintColor} />
+                    <Ionicons name="ios-camera" size={scale(30)} color={tintColor} />
                 </View>
             )},
         }
@@ -60,17 +60,16 @@ const TabNavigator = createBottomTabNavigator({
         screen: ImagePicker,
         navigationOptions: {
             tabBarVisble: false,
-            tabBarIcon: ({ tintColor }) => <Ionicons name="ios-image" size={30} color={tintColor} />
+            tabBarIcon: ({ tintColor }) => <Ionicons name="ios-image" size={scale(30)} color={tintColor} />
         }
     },
     Download: {
         screen: Download,
         navigationOptions: {
-            tabBarIcon: ({ tintColor }) => <Ionicons name="ios-cloud-download" size={30} color={tintColor} />
+            tabBarIcon: ({ tintColor }) => <Ionicons name="ios-cloud-download" size={scale(30)} color={tintColor} />
         }
     }
 }, {
-        initialRouteName: 'Maps',
         tabBarOptions: {
             style: {
                 backgroundColor: '#223a42'
