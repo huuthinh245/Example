@@ -10,7 +10,7 @@
   "dependencies": {
     "apisauce": "^1.0.2",
     "immutable": "^4.0.0-rc.12",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "react": "16.8.3",
     "react-native": "^0.59.3",
     "react-native-camera": "^1.12.0",
